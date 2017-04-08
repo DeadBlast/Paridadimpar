@@ -1,23 +1,28 @@
-#include<stdio.h>
 #include<stdlib.h>
-#include "paridad.h"
+#include<stdio.h>
 #include<math.h>
-int a=0,b=2,i,n;
+#include "paridad.h"
+int n,i;
 int main(){
   do{
-    puts("Dame un numero:");
+    printf("Dame el tanano del arreglo: ");
     scanf("%d",&n);
   }while(n<3);
-  int const k=pow(2,n);
+  const int k=pow(2,n);
   int arreglo[k];
   for(i=0;i<k;i++){
-    scanf("%d",&arreglo[i]);
+    do{
+        printf("Dame el numero %d: ",i+1);
+        scanf("%d",&arreglo[i]);
+    }while(arreglo[i]<1||arreglo[i]>n);
   }
-  if(paridadimpar(arreglo,k,n)){
-    printf("Si hay paridad! 0");
+  if(paridadimpar(arreglo,k,n)==1){
+    puts("");
+    fprintf(stdout, "[");
+    for(int i=0;i<k;i++){
+      fprintf(stdout, "%d ",arreglo[i]);
+    }
+    fprintf(stdout,"]\n");
   }
-  else{
-    printf("No hay paridad! 1");
-  }
-  return 1;
+  return 0;
 }
