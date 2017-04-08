@@ -1,9 +1,4 @@
 int paridadimpar(int arreglo[],int k,int n){
-  printf("[ ");
-  for(int i=0;i<k;i++){
-    printf("%d ",arreglo[i]);
-  }
-  printf("]\n");
   int j,tam=2,i,h,l=1,total=0,paridad_impar=0;
   while(tam<=k-1){
     for(j=0;j<=k-tam;j++){
@@ -23,6 +18,11 @@ int paridadimpar(int arreglo[],int k,int n){
         }
       }
       if(paridad_impar==0){
+        fprintf(stderr, "Subcadena con error:\n [");
+        for(i=j;i<=l;i++){
+          fprintf(stderr, "%d ",arreglo[i] );
+        }
+        fprintf(stderr, "]");
         j=k;
         tam=k;
       }
