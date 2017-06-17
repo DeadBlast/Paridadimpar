@@ -27,11 +27,10 @@ int paridadimpar(int arreglo[],int k,int n){
       /*Si despues de analizar la primer subcadena no encontramos la paridad impar
       no sera necesario buscar en las demas subcadenas, por lo que mostramos la subcadena con error*/
       if(paridad_impar==0){
-        fprintf(stderr, "[");
-        for(i=min;i<=max;i++){
-          fprintf(stderr, "%d ",arreglo[i] );
+        for(i=min;i<max;i++){
+          fprintf(stderr, "%d,",arreglo[i] );
         }
-        fprintf(stderr, "]\n");
+        fprintf(stderr, "%d\n",arreglo[max]);
         min=k;
         tam=k;
       }
@@ -46,11 +45,10 @@ int paridadimpar(int arreglo[],int k,int n){
   /*Si al final de buscar se cumple la paridad impar para cada subcadena mostramos
   la cadena completa ingresada*/
   if(paridad_impar){
-    fprintf(stdout, "[");
-    for(int i=0;i<k;i++){
-      fprintf(stdout, "%d ",arreglo[i]);
+    for(int i=0;i<(k-1);i++){
+      fprintf(stdout, "%d,",arreglo[i]);
     }
-    fprintf(stdout,"]\n");
+    fprintf(stdout,"%d\n",arreglo[i]);
     //Regresamos un 1 por si lo necesitamos
     return 1;
   }
